@@ -24,6 +24,7 @@ function listing() {
                                     <button class="more-btn" onclick="open_popup()">More</button>
                                 </div>
                             </div>`
+                            
             $('.team-member').append(temp_html);
 
             const boxs = document.querySelectorAll(".member-list");
@@ -65,10 +66,6 @@ function listing() {
         })            
     });
 }
-
-
-
-
 
 function save_member() {
     let name = $('#name').val();
