@@ -6,6 +6,7 @@ function listing() {
     fetch('/members').then((res) => res.json()) .then((data) => {
         let rows = data['result']
         $('.team-member').empty()
+        let temp_html = '';   
         rows.forEach((a)=>{
             let name = a['name']
             let position = a['position']
@@ -13,19 +14,31 @@ function listing() {
             let hobby = a['hobby']
             let img = a['img']
 
-            let temp_html = `<div class="member-list" >
-                                <div class="member-img"><img src="${img}" /></div>                
-                                <div class="member-info">
-                                    <h5 class="mem-name">${name}</h5>
-                                    <p class="mem-posi">포지션 : ${position}</p>
-                                    <p class="mem-mbti">MBTI : ${mbti}</p>
-                                    <p class="mem-hobby">취미 : ${hobby}</p>
+            // let temp_html = `<div class="member-list" >
+            //                     <div class="member-img"><img src="${img}" /></div>                
+            //                     <div class="member-info">
+            //                         <h5 class="mem-name">${name}</h5>
+            //                         <p class="mem-posi">포지션 : ${position}</p>
+            //                         <p class="mem-mbti">MBTI : ${mbti}</p>
+            //                         <p class="mem-hobby">취미 : ${hobby}</p>
 
-                                    <button class="more-btn" onclick="open_popup()">More</button>
-                                </div>
-                            </div>`
-                            
-            $('.team-member').append(temp_html);
+            //                         <button class="more-btn" onclick="open_popup()">More</button>
+            //                     </div>
+            //                 </div>`
+            temp_html +=`<div class="member-list" >
+                            <div class="member-img"><img src="${img}" /></div>                
+                            <div class="member-info">
+                                <h5 class="mem-name">${name}</h5>
+                                <p class="mem-posi">포지션 : ${position}</p>
+                                <p class="mem-mbti">MBTI : ${mbti}</p>
+                                <p class="mem-hobby">취미 : ${hobby}</p>
+
+                                <button class="more-btn" onclick="open_popup()">More</button>
+                            </div>
+                        </div>`;  
+            // $('.team-member').append(temp_html);
+            let teamMember = document.querySelector(".team-member");
+            teamMember.innerHTML = temp_html;
 
             const boxs = document.querySelectorAll(".member-list");
             boxs.forEach((el, index) => {

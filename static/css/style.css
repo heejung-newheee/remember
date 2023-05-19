@@ -78,7 +78,7 @@ input:focus {
     color: rgb(172, 172, 172);
     border-color: rgb(152, 207, 252);
     outline: 0;
-    }
+}
 .input-box label {
     opacity: 0;
 }

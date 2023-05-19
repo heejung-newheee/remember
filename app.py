@@ -7,12 +7,12 @@ db = client.dbsparta
 
 @app.route('/')
 def home():
-    return render_template('index_hj.html')
+    return render_template('index.html')
 
 @app.route('/members', methods=['GET'])
 def members_get():
    all_members = list(db.members.find({},{'_id':False}))
-   print(all_members)
+#    print(all_members)
    return jsonify({'result':all_members, 'msg': '목록 조회 완료'})
 
 @app.route('/members', methods=['POST'])
